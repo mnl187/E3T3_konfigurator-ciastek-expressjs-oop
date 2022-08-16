@@ -1,0 +1,35 @@
+Rozkminki
+Konfiguracja Expressa
+JSON nie jest zbędny - póki nie używamy fetcha. Ale nie przeszkadza.
+Pliki statyczne się przydadzą (opisane niżej).
+cookie-parser niezbędny.
+urlencoded (tradycyjne formularze) są zbędne.
+hbs - potrzebne.
+Ścieżki statyczne
+Usuwamy index.html.
+Może się przydać plik CSS. A nawet na pewno.
+Grafiki będą potrzebne.
+Routers / moduły
+configurator.
+home.
+order.
+Widoki / ścieżki
+Strona główna.
+Podziękowanie za dodanie dodatku.
+Podziękowanie za usunięcie dodatku.
+Podziękowanie za wybór spodu.
+Strona błędu.
+Podsumowanie koszyka.
+Podziękowanie za zakupy.
+Partiale
+Lista wybranych dodatków i ich cen.
+Podgląd ciastka.
+Powrót do strony głównej.
+Przechowanie informacji o aktualnym zamówieniu
+Ciastko ze spodem: string.
+Ciastko z dodatkami: tablica stringów. JSON.
+Przechowanie bazy danych o spodach i dodatkach
+W pliku .js będą dwa obiekty. Jeden ze spodami, a drugi z dodatkami.
+W obiektach klucze to będą nazwy spodu/dodatku, a wartości to będą ceny.
+Sposób wyświetlania ciastka
+div ze stałą szerokością i wysokością ze wstawionymi wieloma obrazkami nałożoymi na siebie przez background.
