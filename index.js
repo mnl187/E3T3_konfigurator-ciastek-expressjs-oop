@@ -29,7 +29,7 @@ _configureApp() {
 }
 
 _setRoutes() {
-    this.app.use('/', new HomeRouter());
+    this.app.use('/', new HomeRouter().router);
     this.app.use('/configurator', configuratorRouter);
     this.app.use('/order', orderRouter);
 }
@@ -41,4 +41,4 @@ _run() {
 }
 }
 
-new App()
+new CookieMaker()
