@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const hbs = require('express-handlebars');
-const {homeRouter} = require("./routes/home");
+const {HomeRouter} = require("./routes/home");
 const {configuratorRouter} = require("./routes/configurator");
 const {orderRouter} = require("./routes/order");
 const {handlebarsHelpers} = require("./utils/handlebars-helpers");
@@ -29,7 +29,7 @@ _configureApp() {
 }
 
 _setRoutes() {
-    this.app.use('/', homeRouter);
+    this.app.use('/', new HomeRouter());
     this.app.use('/configurator', configuratorRouter);
     this.app.use('/order', orderRouter);
 }
