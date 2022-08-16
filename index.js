@@ -30,7 +30,7 @@ _configureApp() {
 
 _setRoutes() {
     this.app.use('/', new HomeRouter().router);
-    this.app.use('/configurator', configuratorRouter);
+    this.app.use('/configurator', new ConfiguratorRouter().router));
     this.app.use('/order', orderRouter);
 }
 

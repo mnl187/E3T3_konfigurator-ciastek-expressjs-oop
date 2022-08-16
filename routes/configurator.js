@@ -3,10 +3,20 @@ const {getAddonsFromReq} = require("../utils/get-addons-from-req");
 const {COOKIE_BASES, COOKIE_ADDONS} = require("../data/cookies-data");
 const {showErrorPage} = require("../utils/show-error-page");
 
-const configuratorRouter = express.Router();
 
-configuratorRouter
-    .get('/select-base/:baseName', (req, res) => {
+class ConfiguratorRouter {
+    constructor() {
+        this.router = express.Router();
+        this.setUpRoutes();
+    }
+
+    setUpRoutes() {
+        this.router.get('/select-base/:baseName', this.selectBase);
+        this.router.get('/add-addon/:addonName', this.addAddon);
+        this.router.get('/delete-addon/:addonName', this.deleteAddon);
+    }
+
+    selectBase(req, res) {
         const {baseName} = req.params;
 
         if (!COOKIE_BASES[baseName]) {
@@ -18,11 +28,10 @@ configuratorRouter
             .render('configurator/base-selected', {
                 baseName,
             });
-    })
+    }
 
-    .get('/add-addon/:addonName', (req, res) => {
+    addAddon(req, res) {
         const {addonName} = req.params;
-
 
         if (!COOKIE_ADDONS[addonName]) {
             return showErrorPage(`There is no such addon as ${addonName}.`);
@@ -41,8 +50,9 @@ configuratorRouter
             .render('configurator/added', {
                 addonName,
             });
-    })
-    .get('/delete-addon/:addonName', (req, res) => {
+    }
+
+    deleteAddon(req, res) {
         const {addonName} = req.params;
 
         const oldAddons = getAddonsFromReq(req);
@@ -59,9 +69,9 @@ configuratorRouter
             .render('configurator/deleted', {
                 addonName,
             });
-    });
-
+    }
+}
 
 module.exports = {
-    configuratorRouter,
+    ConfiguratorRouter,
 };
