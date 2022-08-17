@@ -1,5 +1,6 @@
 const express = require('express');
-const {getCookieSettings} = require("../utils/get-cookie-settings");
+
+function getCookieSettings() {};
 
 const orderRouter = express.Router();
 
