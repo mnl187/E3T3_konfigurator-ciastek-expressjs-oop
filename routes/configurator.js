@@ -1,5 +1,4 @@
 const express = require('express');
-const {COOKIE_BASES, COOKIE_ADDONS} = require("../data/cookies-data");
 
 
 class ConfiguratorRouter {
@@ -18,7 +17,7 @@ class ConfiguratorRouter {
     selectBase = (req, res) => {
         const {baseName} = req.params;
 
-        if (!COOKIE_BASES[baseName]) {
+        if (this.cmapp.data.COOKIE_BASES[baseName]) {
             return this.cmapp.showErrorPage(res, `There is no such base as ${baseName}`);
         }
 
@@ -32,7 +31,7 @@ class ConfiguratorRouter {
     addAddon = (req, res) => {
         const {addonName} = req.params;
 
-        if (!COOKIE_ADDONS[addonName]) {
+        if (this.cmapp.data.COOKIE_ADDONS[addonName]) {
             return this.cmapp.showErrorPage(`There is no such addon as ${addonName}.`);
         }
 
