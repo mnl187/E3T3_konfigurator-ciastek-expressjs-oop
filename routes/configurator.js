@@ -62,7 +62,6 @@ class ConfiguratorRouter {
 
         const addons = oldAddons.filter(addon => addon !== addonName);
 
-
         res
             .cookie('cookieAddons', JSON.stringify(addons))
             .render('configurator/deleted', {

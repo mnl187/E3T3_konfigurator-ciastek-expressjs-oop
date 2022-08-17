@@ -1,7 +1,8 @@
 const express = require('express');
 
 class HomeRouter {
-    constructor() {
+    constructor(cmapp) {
+        this.cmapp = cmapp;
         this.router = express.Router();
         this.setUpRoutes();
     }
